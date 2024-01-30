@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Questions from './components/questions/questions';
 
@@ -7,13 +7,22 @@ function App() {
   const [value, setValue] = useState('');
   const [buttonClicked, setButtonClicked] = useState(false);
 
+  useEffect(()=>{
+    const storedButtonClicked = localStorage.getItem('buttonClicked');
+    if(storedButtonClicked === 'true'){
+      setButtonClicked(true)
+    }
+  },[])
+
   const handleChange = (event) => {
     if (event) event.preventDefault();
-    setValue(event.target.value)
+    let name= event.target.value;
+    localStorage.setItem('Name', `${name}`)
+    setValue(name)
   }
   const handleClick = () => {
-    alert(`Dear ${value}, welcome to the survey. Please note that you have 2 minutes to answer each questions.`);
     setButtonClicked(true);
+    localStorage.setItem('buttonClicked', 'true')
   }
 
 
@@ -32,7 +41,7 @@ function App() {
             </form>
           </div>
         </>
-      ) : (<Questions />)
+      ) : (<Questions name={value}  setButtonClicked={setButtonClicked}/>)
       }
 
 
