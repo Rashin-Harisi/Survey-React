@@ -11,9 +11,9 @@
 }
 
 .layout .timer{
-    border: 1px solid red;
-    width: 80px;
-    height: 70px;
+    
+    width: 120px;
+    height: 30px;
     margin-left: 10px;
 }
 

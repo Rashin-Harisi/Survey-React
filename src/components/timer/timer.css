@@ -1,0 +1,15 @@
+.timer{
+    display : flex;
+    align-items: center;
+    width: 100%;
+}
+.timer .space{
+    width: 10px;
+    margin: auto;
+}
+.timer .minutes{
+    display : flex;
+}
+.timer .seconds{
+    display : flex;
+}
