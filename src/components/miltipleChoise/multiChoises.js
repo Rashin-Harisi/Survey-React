@@ -5,8 +5,12 @@ import './multiCoises.css';
 const MultiChoicesQuestions = ({ Question, Options }) => {
     const [options, setOptions] = useState(Options);//Options should be an array;
     const [question, setQuestion] = useState(Question);//Question should be a string;
+    const [checkedOption, setCheckedOption] =useState([])
 
-    console.log('options', options)
+    const handleChange = () => {
+    
+    };
+    
 
     return (
         <div className='multiChoicesQuestion'>
@@ -14,7 +18,7 @@ const MultiChoicesQuestions = ({ Question, Options }) => {
                 <p className='question'>{question}</p>
                 <ul className='options'>
                     {options.map((option) =>
-                        <li key={option}> <input type='checkBox' /> {option}</li>
+                        <li key={option}> <input type='checkBox' onChange={handleChange}/> {option}</li>
                     )}
                 </ul>
             </Layout>

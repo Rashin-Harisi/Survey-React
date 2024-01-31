@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './timer.css';
-//import alertSound from '../../../public/sound.mp3';
+
 
 
 const Timer = () => {
     const [start, setStart] = useState(false);
     const [timerFinished, setTimerFinished] = useState(false);
+    
     const [count, setCount] = useState(0);
-    const [audio]=useState(new Audio(`${process.env.PUBLIC_URL}/sound.mp3`));
-    const [soundPlayed, setSoundPlayed] = useState(false);
-
 
     const [minutes1, setMinutes1] = useState(2);
     const [minutes2, setMinutes2] = useState(0);
@@ -52,18 +50,12 @@ const Timer = () => {
         }, 1000)
     }, [start, count]);
 
-    useEffect(() => {
-        if (timerFinished && !soundPlayed) {
-            audio.play();
-            setSoundPlayed(true);
-        }
-    }, [timerFinished, soundPlayed, audio]);
-
+    
     useEffect(()=>{
-       if(timerFinished && soundPlayed){
+       if(timerFinished){
         alert('Your time is finished.')
        } 
-    },[timerFinished, soundPlayed]);
+    },[timerFinished]);
 
     return (
 
