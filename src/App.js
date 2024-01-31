@@ -1,22 +1,22 @@
 
 import { useEffect, useState } from 'react';
 import './App.css';
-import Questions from './components/questions/questions';
+import Info from './components/info/info';
 
 function App() {
   const [value, setValue] = useState('');
   const [buttonClicked, setButtonClicked] = useState(false);
 
-  useEffect(()=>{
+  useEffect(() => {
     const storedButtonClicked = localStorage.getItem('buttonClicked');
-    if(storedButtonClicked === 'true'){
-      setButtonClicked(true)
+    if (storedButtonClicked) {
+      setButtonClicked(true);
     }
-  },[])
+  }, []);
 
   const handleChange = (event) => {
     if (event) event.preventDefault();
-    let name= event.target.value;
+    let name = event.target.value;
     localStorage.setItem('Name', `${name}`)
     setValue(name)
   }
@@ -41,12 +41,8 @@ function App() {
             </form>
           </div>
         </>
-      ) : (<Questions name={value}  setButtonClicked={setButtonClicked}/>)
+      ) : (<Info />)
       }
-
-
-
-
     </div>
   );
 }

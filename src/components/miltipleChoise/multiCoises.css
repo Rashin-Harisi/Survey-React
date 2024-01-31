@@ -1,0 +1,13 @@
+.multiChoicesQuestion li{
+    display:flex;
+    align-items: center;
+    margin-top: 5px;
+    font-size: 14px;
+}
+.multiChoicesQuestion ul{
+    margin-left: 40px;
+}
+.multiChoicesQuestion p{
+    margin-bottom: 10px;
+    font-size: 18px;
+}

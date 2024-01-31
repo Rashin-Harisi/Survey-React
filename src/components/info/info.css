@@ -1,0 +1,29 @@
+.questionBox{
+    width: 100vw;
+    height: 100%;
+    margin : auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 10px;
+    background-color: white;;
+}
+.questionBox .explanation{
+    line-height: 1.5;
+}
+
+
+.questionBox .startButton{
+    margin-top: 50px;
+    transition-duration: 400ms;
+    height: 25px;
+}
+
+.questionBox .startButton:hover{
+    height: 30px;
+    color: white;
+    background-color: green;
+    border: none;
+}
