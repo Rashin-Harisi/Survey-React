@@ -1,10 +1,11 @@
 import React from 'react';
 import MultiChoicesQuestions from '../miltipleChoise/multiChoises';
+import OpenEndedQuestion from '../openEnded/openEnded';
 
 const SingleQuestion = ()=>{
     return(
         <div className='box'>
-            <MultiChoicesQuestions Question='How often do you experience stress or anxiety in your daily life?' Options={["Rarely","Occasionally","Frequently", "Almost Daily"]} />
+            <OpenEndedQuestion Question='How satisfied are you with your current relationships (family, friends, romantic)?'/>
         </div>
     )
 };
