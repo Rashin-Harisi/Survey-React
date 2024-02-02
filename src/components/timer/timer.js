@@ -4,75 +4,64 @@ import './timer.css';
 
 
 const Timer = () => {
-    const [start, setStart] = useState(false);
+    function initialTimer(){
+        const storedMinutes = localStorage.getItem('TimerMinutes');
+        const storedSeconds = localStorage.getItem('TimerSeconds');
+
+        if (storedMinutes === null || storedSeconds === null){
+            localStorage.setItem('TimerMinutes', '1');
+            localStorage.setItem('TimerSeconds', '59');    
+        }        
+    }
+   
+
     const [timerFinished, setTimerFinished] = useState(false);
-    
     const [count, setCount] = useState(0);
+    //initialTimer();
+    const [minutes, setMinutes] = useState(() => {
+        initialTimer();
+        return parseFloat(localStorage.getItem('TimerMinutes'));
+    });
+    const [seconds, setSeconds] = useState(() => {
+        initialTimer();
+        return parseFloat(localStorage.getItem('TimerSeconds'));
+    });
 
-    const [minutes1, setMinutes1] = useState(2);
-    const [minutes2, setMinutes2] = useState(0);
-
-    const [seconds1, setSeconds1] = useState(0);
-    const [seconds2, setSeconds2] = useState(0);
-
+    console.log(minutes, seconds, timerFinished)
     useEffect(() => {
-        setStart(true)
-    }, []);
+        if (!timerFinished) {
+            let timeOut = setTimeout(() => {
+                setCount(count + 1)
+                if (seconds > 0) {
+                    setSeconds(seconds - 1);
+                    return
+                } else if (minutes > 0) {
+                    setMinutes(minutes - 1);
+                    setSeconds(59);
+                } else {
+                    setTimerFinished(true)
+                    localStorage.setItem('TimerMinutes','0')
+                    localStorage.setItem('TimerSeconds','0')
+                } 
+            }, 1000);
+            return () => clearTimeout(timeOut);
+        }
+        alert('Your time is finished! please note that you cannot change your answer anymore.')
+    }, [count]);
 
-    useEffect(() => {
-        setTimeout(() => {
-            setCount(count + 1)
-            if (seconds1 > 0) {
-                setSeconds1(seconds1 - 1);
-                return
-            }
-            if (seconds2 > 0) {
-                setSeconds2(seconds2 - 1);
-                setSeconds1(9);
-                return
-            }
 
-            if (minutes1 > 0) {
-                setMinutes1(minutes1 - 1);
-                setSeconds1(9);
-                setSeconds2(5);
-                return
-            }
 
-            if (minutes2 > 0) {
-                setMinutes2(minutes2 - 1);
-                setMinutes1(9);
-                setSeconds1(9);
-                setSeconds2(5);
-                return
-            }
-            setTimerFinished(true);
-        }, 1000)
-    }, [start, count]);
-
-    
-    useEffect(()=>{
-       if(timerFinished){
-        alert('Your time is finished.')
-       } 
-    },[timerFinished]);
 
     return (
-
         <div className='timer'>
             <div className='minutes'>
-                <input type='button' value={minutes2} />
-                <input type='button' value={minutes1} />
+                <input type='button' value={minutes} />
             </div>
-            <span className='space'>:</span> 
+            <span className='space'>:</span>
             <div className='seconds'>
-                <input type='button' value={seconds2} />
-                <input type='button' value={seconds1} />
+                <input type='button' value={seconds} />
             </div>
         </div>
-
-
-
     )
 };
 
