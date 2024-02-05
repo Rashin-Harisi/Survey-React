@@ -1,9 +1,15 @@
-.openEndedQuestion .question{
-    font-size: 18px;
-    margin-bottom: 20px;
+
+.questionBox{
+    width: 100%;
 }
 
-.openEndedQuestion .answer{
+.questionBox .openEndedQuestion .question{
+    font-size: 18px;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+
+.questionBox .openEndedQuestion .answer{
     width: 250px;
     height: 30px;
     border: none;
@@ -11,6 +17,14 @@
     font-size: 14px;
     margin-left: 20px;
 }
-.openEndedQuestion .answer::placeholder{
+.questionBox .openEndedQuestion .answer::placeholder{
     font-size: 12px;
+}
+.questionBox .timer{
+    width: 80px;
+    height: 30px;
+    margin-left: 10px;
+    position: absolute;
+    top: 0;
+    left:0;
 }

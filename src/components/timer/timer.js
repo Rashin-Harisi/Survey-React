@@ -4,6 +4,7 @@ import './timer.css';
 
 
 const Timer = () => {
+    
     function initialTimer(){
         const storedMinutes = localStorage.getItem('TimerMinutes');
         const storedSeconds = localStorage.getItem('TimerSeconds');
@@ -13,11 +14,15 @@ const Timer = () => {
             localStorage.setItem('TimerSeconds', '59');    
         }        
     }
+    
    
 
     const [timerFinished, setTimerFinished] = useState(false);
     const [count, setCount] = useState(0);
-    //initialTimer();
+    ///const [minutes, setMinutes] = useState( 1);
+    //const [seconds, setSeconds] = useState( 59);
+
+
     const [minutes, setMinutes] = useState(() => {
         initialTimer();
         return parseFloat(localStorage.getItem('TimerMinutes'));
@@ -28,6 +33,7 @@ const Timer = () => {
     });
 
     //console.log(minutes, seconds, timerFinished)
+    
     useEffect(() => {
         if (!timerFinished) {
             let timeOut = setTimeout(() => {
@@ -48,8 +54,6 @@ const Timer = () => {
         }
         alert('Your time is finished! please note that you cannot change your answer anymore.')
     }, [count]);
-
-
 
 
     return (

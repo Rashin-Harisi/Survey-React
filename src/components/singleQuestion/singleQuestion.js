@@ -7,22 +7,22 @@ import './singleQuestion.css'
 
 const SingleQuestion = () => {
     const [answers,setAnswers] = useState([]);
-    console.log(answers)
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
-    
-    const listOfQuestions = ListOfQuestions;
-    //console.log(listOfQuestions)
+    //console.log(answers)
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+   
 
     const handlePreviousClicked = () => {
-      if(currentQuestionIndex>0){
-        setCurrentQuestionIndex(currentQuestionIndex - 1)
-      }
+        if (currentQuestionIndex > 0) {
+            setCurrentQuestionIndex(currentQuestionIndex - 1);
+        }
     };
+    
 
     const handleNextClicked = () => {
-        if(currentQuestionIndex < ListOfQuestions.length -1){
-            setCurrentQuestionIndex(currentQuestionIndex + 1)
-          }
+        if (currentQuestionIndex < ListOfQuestions.length - 1) {
+            setCurrentQuestionIndex(currentQuestionIndex + 1);
+        }
+    
     };
     const currentQuestion= ListOfQuestions[currentQuestionIndex];
 
@@ -45,10 +45,11 @@ const SingleQuestion = () => {
             return updatedAnswers;
         })
     }
+
+    
     
     return (
         <div className='box'>
-            <div className='timer'><Timer /></div>
             <div className='children'>
                 {currentQuestion.hasOwnProperty('options')?
                     <MultiChoicesQuestions Question={currentQuestion.title} Options={currentQuestion.options} Answer={answers} onAnswerChange={handleAnswer}/> :

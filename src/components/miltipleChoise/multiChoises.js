@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './multiCoises.css';
+import Timer from '../timer/timer';
 
-const MultiChoicesQuestions = ({ Question, Options,Answer,onAnswerChange }) => {
+const MultiChoicesQuestions = ({ Question, Options,Answer,onAnswerChange}) => {
     const [options] = useState(Options);//Options should be an array of 4 strings;
     const [question] = useState(Question);//Question should be a string;
     const [status,setStatus]= useState([false,false,false,false]);
-   
- 
 
 
     //check if another option was checked, the handleStatus function is for being sure that just the checked option's status would be true.   
@@ -39,7 +38,9 @@ const MultiChoicesQuestions = ({ Question, Options,Answer,onAnswerChange }) => {
 
 
     return (
-        <div className='multiChoicesQuestion'>
+        <div className='QuestionBox'>
+            <div className='timer'><Timer/></div>
+            <div className='multiChoicesQuestion'>
                 <p className='question'>{question}</p>
                 <ul className='options'>
                     {options.map((option,index) =>
@@ -49,6 +50,8 @@ const MultiChoicesQuestions = ({ Question, Options,Answer,onAnswerChange }) => {
                 </ul>
 
         </div>
+        </div>
+        
     )
 };
 

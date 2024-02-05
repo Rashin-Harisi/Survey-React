@@ -1,13 +1,26 @@
-.multiChoicesQuestion li{
-    display:flex;
+.QuestionBox{
+    width: 100%;
+}
+.QuestionBox .timer {
+    width: 80px;
+    height: 30px;
+    margin-left: 10px;
+    
+}
+
+.QuestionBox .multiChoicesQuestion li {
+    display: flex;
     align-items: center;
     margin-top: 5px;
     font-size: 14px;
 }
-.multiChoicesQuestion ul{
+
+.QuestionBox .multiChoicesQuestion ul {
     margin-left: 40px;
 }
-.multiChoicesQuestion p{
+
+.QuestionBox .multiChoicesQuestion p {
     margin-bottom: 10px;
     font-size: 18px;
+    margin-top: 50px;
 }
