@@ -27,7 +27,7 @@ const Timer = () => {
         return parseFloat(localStorage.getItem('TimerSeconds'));
     });
 
-    console.log(minutes, seconds, timerFinished)
+    //console.log(minutes, seconds, timerFinished)
     useEffect(() => {
         if (!timerFinished) {
             let timeOut = setTimeout(() => {

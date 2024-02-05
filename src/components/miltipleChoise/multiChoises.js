@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Layout from '../layout/layout';
 import './multiCoises.css';
 
-const MultiChoicesQuestions = ({ Question, Options }) => {
+const MultiChoicesQuestions = ({ Question, Options,Answer,onAnswerChange }) => {
     const [options] = useState(Options);//Options should be an array of 4 strings;
     const [question] = useState(Question);//Question should be a string;
     const [status,setStatus]= useState([false,false,false,false]);
@@ -34,13 +33,13 @@ const MultiChoicesQuestions = ({ Question, Options }) => {
     useEffect(()=>{
         let indexAnswer= status.indexOf(true);
         let newOption = options[indexAnswer];
-        localStorage.setItem(`${question}`, newOption)
+        onAnswerChange(newOption);
+        //localStorage.setItem(`${question}`, newOption)
     },[status])
 
 
     return (
         <div className='multiChoicesQuestion'>
-            <Layout>
                 <p className='question'>{question}</p>
                 <ul className='options'>
                     {options.map((option,index) =>
@@ -48,7 +47,6 @@ const MultiChoicesQuestions = ({ Question, Options }) => {
                         checked={status[index]}/> {option}</li>
                     )}
                 </ul>
-            </Layout>
 
         </div>
     )
