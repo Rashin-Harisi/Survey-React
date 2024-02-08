@@ -3,67 +3,53 @@ import './timer.css';
 
 
 
-const Timer = () => {
-    
-    function initialTimer(){
-        const storedMinutes = localStorage.getItem('TimerMinutes');
-        const storedSeconds = localStorage.getItem('TimerSeconds');
+const Timer = ({ onChangeTimer, ID }) => {
+    const [finishedTime, setFinishedTime] = useState(false);
 
-        if (storedMinutes === null || storedSeconds === null){
-            localStorage.setItem('TimerMinutes', '1');
-            localStorage.setItem('TimerSeconds', '59');    
-        }        
-    }
-    
-   
-
-    const [timerFinished, setTimerFinished] = useState(false);
-    const [count, setCount] = useState(0);
-    ///const [minutes, setMinutes] = useState( 1);
-    //const [seconds, setSeconds] = useState( 59);
-
-
-    const [minutes, setMinutes] = useState(() => {
-        initialTimer();
-        return parseFloat(localStorage.getItem('TimerMinutes'));
-    });
-    const [seconds, setSeconds] = useState(() => {
-        initialTimer();
-        return parseFloat(localStorage.getItem('TimerSeconds'));
-    });
-
-    //console.log(minutes, seconds, timerFinished)
-    
-    useEffect(() => {
-        if (!timerFinished) {
-            let timeOut = setTimeout(() => {
-                setCount(count + 1)
-                if (seconds > 0) {
-                    setSeconds(seconds - 1);
-                    return
-                } else if (minutes > 0) {
-                    setMinutes(minutes - 1);
-                    setSeconds(59);
-                } else {
-                    setTimerFinished(true)
-                    localStorage.setItem('TimerMinutes','0')
-                    localStorage.setItem('TimerSeconds','0')
-                } 
-            }, 1000);
-            return () => clearTimeout(timeOut);
+    const initial = () => {
+        const Time = localStorage.getItem(ID);
+        if (Time === null) {
+            localStorage.setItem(ID, JSON.stringify(10))
+        } else if (Time === 0) {
+            setFinishedTime(true)
         }
-        alert('Your time is finished! please note that you cannot change your answer anymore.')
-    }, [count]);
+    }
+
+
+    const storedTime = JSON.parse(localStorage.getItem(ID)) || (() => {
+        initial();
+        return JSON.parse(localStorage.getItem(ID))
+    });
+    // console.log ('storedTime',storedTime)
+    const [time, setTime] = useState(storedTime)
+    const [count, setCount] = useState(0);
+
+
+    useEffect(() => {
+        if (!finishedTime) {
+            let timeOut = setTimeout(() => {
+                setCount(count + 1);
+                if (time > 0) {
+                    setTime(time - 1)
+                    localStorage.setItem(ID, JSON.stringify(time - 1));
+                } else {
+                    setFinishedTime(true);
+                    alert('Your Time is finished.')
+                }
+            }, 1000)
+            return () => clearTimeout(timeOut)
+        }
+    }, [count, time, finishedTime, ID])
+
+    useEffect(() => {
+        onChangeTimer(time)
+    }, [time])
 
 
     return (
         <div className='timer'>
             <div className='minutes'>
-                <input type='button' value={minutes} />
-            </div>
-            <span className='space'>:</span>
-            <div className='seconds'>
-                <input type='button' value={seconds} />
+                <p>Remaining Time : <input type='button' value={time} /></p>
             </div>
         </div>
     )

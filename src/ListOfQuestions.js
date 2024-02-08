@@ -17,7 +17,7 @@ const ListOfQuestions = [
         options:["Rarely","Occasionally","Frequently", "Almost Daily"],
     },
     {
-        id:uuidv4() ,
+        id: uuidv4(),
         title: "Do you feel comfortable expressing your emotions to others?",
     },
     {
@@ -39,11 +39,11 @@ const ListOfQuestions = [
         title: "How satisfied are you with your current job/school environment?",
     },
     {
-        id: uuidv4(),
+        id: uuidv4() ,
         title: "How much time do you spend on digital devices each day?",
     },
     {
-        id: uuidv4(),
+        id: uuidv4() ,
         title: "On average, how many hours of sleep do you get per night?",
     },
 

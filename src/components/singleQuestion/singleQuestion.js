@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import MultiChoicesQuestions from '../miltipleChoise/multiChoises';
 import OpenEndedQuestion from '../openEnded/openEnded';
 import ListOfQuestions from '../../ListOfQuestions';
-import Timer from '../timer/timer';
-import './singleQuestion.css'
+import './singleQuestion.css';
 
 const SingleQuestion = () => {
     const [answers,setAnswers] = useState([]);
@@ -46,14 +45,12 @@ const SingleQuestion = () => {
         })
     }
 
-    
-    
     return (
         <div className='box'>
             <div className='children'>
                 {currentQuestion.hasOwnProperty('options')?
-                    <MultiChoicesQuestions Question={currentQuestion.title} Options={currentQuestion.options} Answer={answers} onAnswerChange={handleAnswer}/> :
-                    <OpenEndedQuestion Question={currentQuestion.title} Answer={answers} onAnswerChange={handleAnswer}/>
+                    <MultiChoicesQuestions ID={currentQuestion.id}  Question={currentQuestion.title} Options={currentQuestion.options} onAnswerChange={handleAnswer} /> :
+                    <OpenEndedQuestion ID={currentQuestion.id}  Question={currentQuestion.title} onAnswerChange={handleAnswer} />
                 }
             </div>
             <div className='buttons'>

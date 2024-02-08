@@ -2,10 +2,9 @@
     width: 100%;
 }
 .QuestionBox .timer {
-    width: 80px;
-    height: 30px;
+    width: 150px;
+    height: 50px;
     margin-left: 10px;
-    
 }
 
 .QuestionBox .multiChoicesQuestion li {
