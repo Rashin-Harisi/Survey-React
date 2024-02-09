@@ -26,7 +26,7 @@ const Info = () => {
     return (
         <div className='questionBox'>
             {!clicked ? (<>
-                <p className='explanation'>Hello {name}. Welcome to the survey. There are 10 questions to evaluate your current mental situation. Please note that you have 2 minutes to answer each question, and at the end of the time you cannot change your answer. Please choose the option which is the closest one to your answer. If you are ready please click the button.  </p>
+                <p className='explanation'>Hello {name}. Welcome to the survey. There are 5 questions to evaluate your current mental situation. Please note that you have 1 minutes to answer each question, and at the end of the time you cannot change your answer. Please choose the option which is the closest one to your answer. If you are ready please click the button.  </p>
                 <input type='submit' className='startButton' onClick={handleClick} value="Lest's Start!" />
             </>) : <SingleQuestion />}
 

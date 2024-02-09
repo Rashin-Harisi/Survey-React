@@ -9,7 +9,7 @@ const Timer = ({ onChangeTimer, ID }) => {
     const initial = () => {
         const Time = localStorage.getItem(ID);
         if (Time === null) {
-            localStorage.setItem(ID, JSON.stringify(10))
+            localStorage.setItem(ID, JSON.stringify(60))
         } else if (Time === 0) {
             setFinishedTime(true)
         }
