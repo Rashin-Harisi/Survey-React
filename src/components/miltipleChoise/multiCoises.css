@@ -1,10 +1,15 @@
 .QuestionBox{
     width: 100%;
+    min-width: 320px;
+    height: 100%;
+    margin : 0;
+    overflow: hidden;
 }
 .QuestionBox .timer {
-    width: 150px;
+    width: 200px;
     height: 50px;
-    margin-left: 10px;
+    margin-left: 40px;
+    
 }
 
 .QuestionBox .multiChoicesQuestion li {
@@ -15,11 +20,12 @@
 }
 
 .QuestionBox .multiChoicesQuestion ul {
-    margin-left: 40px;
+    margin-left: 120px;
 }
 
-.QuestionBox .multiChoicesQuestion p {
+.QuestionBox .multiChoicesQuestion .question {
     margin-bottom: 10px;
     font-size: 18px;
     margin-top: 50px;
+    margin-left: 80px;
 }

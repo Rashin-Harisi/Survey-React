@@ -7,12 +7,14 @@ function App() {
   const [value, setValue] = useState('');
   const [buttonClicked, setButtonClicked] = useState(false);
 
+/*
   useEffect(() => {
     const storedButtonClicked = localStorage.getItem('buttonClicked');
     if (storedButtonClicked) {
       setButtonClicked(true);
     }
   }, []);
+*/
 
   const handleChange = (event) => {
     if (event) event.preventDefault();
@@ -22,7 +24,7 @@ function App() {
   }
   const handleClick = () => {
     setButtonClicked(true);
-    localStorage.setItem('buttonClicked', 'true')
+    //localStorage.setItem('buttonClicked', 'true')
   }
 
 

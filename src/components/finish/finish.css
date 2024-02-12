@@ -1,0 +1,39 @@
+
+.finish{
+    width: 85%;
+    min-width: 320px;
+    height: 100%;
+    padding-top: 20px;
+    margin : auto auto;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    overflow: auto;
+}
+.finish p{
+    margin-bottom :20px ;
+}
+.finish p b{
+    font-weight: bold;
+    font-style: italic;
+}
+.finish .table{
+    border: 1px solid black;
+    width: 100%
+}
+.finish .table tr:hover {
+    background-color: #DC143C;
+    color: white;
+}
+.finish input[type=button]{
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.finish table, th, td {
+    border: 1px solid black;
+  }

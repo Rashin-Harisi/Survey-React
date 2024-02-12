@@ -13,14 +13,20 @@ const SingleQuestion = () => {
     const [finishClicked, setFinishClicked] = useState(false);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [currentQuestion, setCurrentQuestion]= useState("");
-
-
+    
+    useEffect(() => {
+        localStorage.setItem("Answers", JSON.stringify(answers));
+    }, [answers]);
+    //console.log('answers',answers)
+    
+/*
     useEffect(()=>{
         const storedFinishClicked = localStorage.getItem("FinishClicked");
         if (storedFinishClicked === 'true'){
             setFinishClicked(true)
         }
     },[]);
+*/
 
     useEffect(()=>{
         setCurrentQuestion(ListOfQuestions[currentQuestionIndex]);
@@ -70,7 +76,7 @@ const SingleQuestion = () => {
     }
     const handleFinishClick = () => {
         setFinishClicked(true);
-        localStorage.setItem('FinishClicked', 'true');
+        //localStorage.setItem('FinishClicked', 'true');
     }
     
     return (

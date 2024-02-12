@@ -1,12 +1,18 @@
 
 .questionBox{
     width: 100%;
+    margin : 0;
+    min-width: 320px;
+    height: 100%;
+    
 }
 
 .questionBox .openEndedQuestion .question{
     font-size: 18px;
     margin-bottom: 20px;
-    margin-top: 50px;
+    position: absolute;
+    top: 15%;
+    left: 10%;
 }
 
 .questionBox .openEndedQuestion .answer{
@@ -16,15 +22,18 @@
     background-color: #eee;
     font-size: 14px;
     margin-left: 20px;
+    position: absolute;
+    top: 30%;
+    left: 10%;
 }
 .questionBox .openEndedQuestion .answer::placeholder{
     font-size: 12px;
 }
 .questionBox .timer{
-    width: 80px;
+    width:200px;
     height: 30px;
-    margin-left: 10px;
     position: absolute;
     top: 0;
     left:0;
+    margin-left: 40px;
 }
